@@ -24,13 +24,14 @@ public class ControlsEdit : MonoBehaviour
         Vector2 forewardSpeed = new Vector2(7.0f, rb.velocity.y);
         Vector2 backwardSpeed = new Vector2(-7.0f, rb.velocity.y);
         
-        if(Input.GetAxisRaw("Horizontal") > 0.1 || Input.GetKey("d")) {
+        if(Input.GetKey("d")) {
             rb.velocity = forewardSpeed;
-        } else if(Input.GetAxis("Horizontal") < -0.1|| Input.GetKey("a")) {
+        } else if(Input.GetKey("a")) {
             rb.velocity = backwardSpeed;
         }
 
-        if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
+        if(Input.GetButton("Cancel") && grounded == 1) {
+        //if(Input.GetKeyDown("w") && grounded == 1) {
             rb.AddForce(jumpForce);
             grounded = 0;
         }
@@ -40,6 +41,7 @@ public class ControlsEdit : MonoBehaviour
     void OnTriggerEnter2D(Collider2D col) {
         if (col.name == "ExitDoor") {
             completedLevel = true;
+            Debug.Log("YAYAY");
         }
     }
 }
