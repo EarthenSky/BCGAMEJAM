@@ -9,14 +9,13 @@ public class Controls : MonoBehaviour
     public float moveSpeed;
 
     public int grounded;
-    //public GameObject foot;
-   // public FootScript fs;
+   
 
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        //fs = foot.GetComponent<FootScript>();
+        
     }
     // Update is called once per frame
     void FixedUpdate()

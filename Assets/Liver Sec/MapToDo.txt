@@ -1,0 +1,13 @@
+Here's some platform components I want to add tomorrow:
+
+Bomb block - represents unexploded ordanance from the spaceship
+- Interacting with the block will push the player away from the block (ie jumping on it will blast the player up, hitting it from below will push the player away)
+- Like a bumper
+- Enemies will not trigger bombs
+
+Turret block - where projectiles will be shot
+- Turrets should be clearly labelled
+- Contacting a turret will not kill
+
+Spike/instant-kill block - nuff said
+- make platforming more difficult
