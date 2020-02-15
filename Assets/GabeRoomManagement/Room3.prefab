@@ -13633,5 +13633,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Room3
       objectReference: {fileID: 0}
+    - target: {fileID: 8789695732658558463, guid: cd3745d2ec9b10a41a3b1e37954d1c2b,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: cd3745d2ec9b10a41a3b1e37954d1c2b, type: 3}
