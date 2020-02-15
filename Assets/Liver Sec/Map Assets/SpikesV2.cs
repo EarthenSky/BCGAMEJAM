@@ -20,8 +20,14 @@ public class SpikesV2 : MonoBehaviour
     {
         if(collision.collider.name == "Player")
         {
-            Debug.Log("You hit the spikes and should die.");
-            //kill player in playerHealth with a similar collision method
+            Debug.Log("spikes");
+            PlayerHealth player = (PlayerHealth)FindObjectOfType(typeof(PlayerHealth));
+            if (player)
+            {
+                player.health = 0;
+            }
+            Debug.Log((player.health));
+            //kill player here
         }
         
 
