@@ -36,7 +36,7 @@ public class enemy : MonoBehaviour
     void Update()
     {   
         float queing= Time.deltaTime;
-        if (total>0.0f){
+        if (total>3.0f){
             total=0;
             GameObject s= Instantiate(ball, transform.position, Quaternion.identity);
             s.GetComponent<Rigidbody2D>().velocity=new Vector2(xvelocity,yvelocity);
