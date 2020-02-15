@@ -8,6 +8,7 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public bool dead;
     public GameObject textBar;
+    public GameObject hpBar;
     private TextMesh hpText;
     void Start()
     {
@@ -21,20 +22,13 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {   
         //prints hp to text
-        hpText.text = "HP: " + health.ToString();
+        float hpPercent = health/100f;
+        hpText.text = health.ToString() + " / 100";
+        hpBar.transform.localScale = new Vector3(hpPercent,0.2f,0);
         //checks if player is dead
         if(health <= 0)
         {
             dead = true;
-        }
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if(collision.collider.name == "Damage Blocks")
-        {
-            health = 0;
-            Debug.Log("hit spikes");
         }
     }
 }
