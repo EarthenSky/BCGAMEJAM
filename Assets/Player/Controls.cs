@@ -6,11 +6,13 @@ using UnityEngine;
 public class Controls : MonoBehaviour
 {
     public Rigidbody2D rb;
+    public GameObject shieldRotate;
     public GameObject shield;
+    public GameObject crosshairRotate;
     public float moveSpeed;
 
     public int grounded;
-
+    public float counter;
 
    
 
@@ -18,6 +20,7 @@ public class Controls : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        shield.SetActive(false);
         
     }
     // Update is called once per frame
@@ -42,12 +45,20 @@ public class Controls : MonoBehaviour
             rb.AddForce(jumpForce);
             grounded = 0;
         }
+        
+    }
+
+    void Update()
+    {
         //detects mouse hold and turns on shield
-        if(Input.GetMouseButton(0))
+        if(Input.GetMouseButton(0) && counter >= 2f)
         {
+            counter = 0;
+            shieldRotate.transform.rotation = crosshairRotate.transform.rotation;
             shield.SetActive(true);
         }
-        else
+        counter += Time.deltaTime;
+        if(counter >= 1.5f)
         {
             shield.SetActive(false);
         }
