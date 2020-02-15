@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+//this program will determine the position and angle of the players shield based on the relative distance of the
+//player gameobject and the mouse position
 public class ShieldBehavior : MonoBehaviour
 {
 
