@@ -3,7 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class enemy : MonoBehaviour
-{   
+{   //can set global.turret=false then change back to true afterwards to make it a non turret
+    public bool turret = true;
+
     public GameObject Player;
     public int health = 3;
     const int ENEMY = 0;
@@ -16,7 +18,12 @@ public class enemy : MonoBehaviour
     Vector2 direction;
     float angle, xvelocity, yvelocity;
     void Start() {
-        
+        if (turret){
+            this.GetComponent<Rigidbody2D>().gravityScale = 0;
+        }
+        else if (!turret){
+            this.GetComponent<Rigidbody2D>().gravityScale = 1.0f;
+        }
         //complicated vector math to figure out the angle of the player and fire
         direction= Player.transform.position - transform.position;
         angle= Mathf.Atan2(direction.y, direction.x);// * Mathf.Rad2Deg;
@@ -36,7 +43,7 @@ public class enemy : MonoBehaviour
     void Update()
     {   
         float queing= Time.deltaTime;
-        if (total>3.0f){
+        if (total>1.0f){
             total=0;
             GameObject s= Instantiate(ball, transform.position, Quaternion.identity);
             s.GetComponent<Rigidbody2D>().velocity=new Vector2(xvelocity,yvelocity);

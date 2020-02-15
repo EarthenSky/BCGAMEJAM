@@ -9,7 +9,7 @@ public class roomthingie : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-     Instantiate(enemy,new Vector3(0,30.0f,0),Quaternion.identity);  
+     Instantiate(enemy,new Vector3(0,15.0f,0),Quaternion.identity);  
      Instantiate(Player,new Vector3(2.0f,2.0f,0),Quaternion.identity);
     }
 
