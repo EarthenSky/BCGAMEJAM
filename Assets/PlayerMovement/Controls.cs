@@ -14,13 +14,26 @@ public class Controls : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 forewardForce = new Vector2(5.0f,0);
-        Vector2 backwardForce = new Vector2(-1.5f,0);
-        Vector2 jumpForce = new Vector2(0,10f);
+        Vector2 forewardSpeed = new Vector2(5.0f,0);
+        Vector2 backwardSpeed = new Vector2(-5.0f,0);
+        Vector2 jumpForce = new Vector2(0,100f);
+        int jumping = 0;
 
         if(Input.GetKey("d"))
         {
-            rb.velocity = forewardForce;
+            rb.velocity = forewardSpeed;
         }
+
+        if(Input.GetKey("a"))
+        {
+            rb.velocity = backwardSpeed;
+        }
+
+        if(Input.GetKeyDown("w") && jumping != 1)
+        {
+            jumping = 1;
+            rb.AddForce(jumpForce);
+        }
+        jumping = 0;
     }
 }
