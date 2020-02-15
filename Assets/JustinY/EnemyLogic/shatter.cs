@@ -8,7 +8,7 @@ public class shatter : MonoBehaviour
      void OnCollisionEnter2D(Collision2D collisionInfo){
          if(collisionInfo.collider.name=="Sheild"){
              collisionInfo.collider.gameObject.SetActive(false);
-             collisionInfo.collider.gameObject.GetComponent<PlayerHealth>().health = collisionInfo.collider.gameObject.GetComponent<PlayerHealth>().health/2;
+             //collisionInfo.collider.gameObject.GetComponent<PlayerHealth>().health = collisionInfo.collider.gameObject.GetComponent<PlayerHealth>().health/2;
              GameObject.Destroy(gameObject);
          }
          else if (collisionInfo.collider.name!="Sheild"){
