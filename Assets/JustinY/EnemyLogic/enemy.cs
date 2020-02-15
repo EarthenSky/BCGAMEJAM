@@ -11,7 +11,7 @@ public class enemy : MonoBehaviour
     private float total=0;
     //change this name later to shot when the object is renamed to shot
     public GameObject Shot;
-    public float velocity = 25.0f;
+    public float velocity = 15.0f;
     Vector2 direction;
     float angle, xvelocity, yvelocity;
     public void Ouch(){
