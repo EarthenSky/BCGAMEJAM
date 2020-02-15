@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+//this program checks if the player is touching the ground
 public class FootScript : MonoBehaviour
 {
 
