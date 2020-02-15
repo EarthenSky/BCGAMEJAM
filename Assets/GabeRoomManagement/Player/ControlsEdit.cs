@@ -15,7 +15,7 @@ public class ControlsEdit : MonoBehaviour
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        jumpForce = new Vector2(0, 2400f);   
+        jumpForce = new Vector2(0, 1800f);   
     }
 
     // Update is called once per frame
