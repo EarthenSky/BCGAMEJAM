@@ -14,7 +14,7 @@ public class Controls : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 forewardForce = new Vector2(1.5f,0);
+        Vector2 forewardForce = new Vector2(5.0f,0);
         Vector2 backwardForce = new Vector2(-1.5f,0);
         Vector2 jumpForce = new Vector2(0,10f);
 
