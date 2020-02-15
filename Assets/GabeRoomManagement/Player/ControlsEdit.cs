@@ -11,11 +11,12 @@ public class ControlsEdit : MonoBehaviour
     public Vector2 jumpForce;
 
     private Rigidbody2D rb;
+    public GameObject shield;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
-        jumpForce = new Vector2(0, 1800f);   
+        jumpForce = new Vector2(0, 1800f);
     }
 
     // Update is called once per frame
@@ -33,6 +34,13 @@ public class ControlsEdit : MonoBehaviour
         if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
             rb.AddForce(jumpForce);
             grounded = 0;
+        }
+
+        //detects mouse hold and turns on shield
+        if(Input.GetMouseButton(0) || Input.GetButton("squareButton")) {
+            shield.SetActive(true);
+        } else {
+            shield.SetActive(false);
         }
     }
 
