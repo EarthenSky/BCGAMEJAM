@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spikes : MonoBehaviour
+public class SpikesV2 : MonoBehaviour
 {
     // Start is called before the first frame update
     void Start()
@@ -16,14 +16,11 @@ public class Spikes : MonoBehaviour
         
     }
 
-    // colliding with a death block will kill the player only
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name == "Player")
+        if(collision.collider.name == "Player")
         {
             Debug.Log("spikes");
-            //kill player here
-            
         }
     }
 }
