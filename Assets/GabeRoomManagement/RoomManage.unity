@@ -167,13 +167,6 @@ MonoBehaviour:
   currentRoomNum: 0
   rooms:
   - {fileID: 3551835575446837351, guid: 71fad836ec8574f4f8b8fe19561bf3f5, type: 3}
-  - {fileID: 5540630226612348287, guid: cd3745d2ec9b10a41a3b1e37954d1c2b, type: 3}
-  - {fileID: 6234042614450217734, guid: 33a5cb0bba8924840ab3b0ea77f3167b, type: 3}
-  - {fileID: 3439922530382964088, guid: a2b55a5c3c6b95b4d8b11f681bfdc895, type: 3}
-  currentRoom: {fileID: 0}
-  currentRoomController: {fileID: 0}
-  lastRoom: {fileID: 0}
-  lastRoomController: {fileID: 0}
   camTrans: {fileID: 2127440179}
   playerPrefab: {fileID: 1544210306374210619, guid: 6ebbda335183ee84f84121c0addb40ed,
     type: 3}

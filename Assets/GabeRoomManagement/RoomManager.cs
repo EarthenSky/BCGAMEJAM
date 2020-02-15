@@ -6,7 +6,7 @@ using UnityEngine;
 /// 
 public class RoomManager : MonoBehaviour
 {
-    const float CAMERA_SPEED = 25f;
+    const float CAMERA_SPEED = 10f;
 
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
@@ -37,25 +37,22 @@ public class RoomManager : MonoBehaviour
     }
 
     private void CreateRoom() {
-        if(currentRoomNum >= ROOM_COUNT) { // Spawn boss room if in last room.
+        if(currentRoomNum == ROOM_COUNT) { // Spawn boss room if in last room.
             CreateBossRoom();
         } else {  // Spawn current room
-            // Delete last room
             if(lastRoom != null) GameObject.Destroy(lastRoom);  // Remove the old room.
 
-            // Make a new room.
             lastRoom = currentRoom;
             currentRoom = GetRandomRoom();  // Get new room
             currentRoom = Instantiate(currentRoom, new Vector3(ROOM_WIDTH * currentRoomNum, 0, 0), Quaternion.identity);
             
-            // Get script portion of the room.
             lastRoomController = currentRoomController;
             currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
             currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
-        }
 
-        currentRoomNum++;
-        cameraAtNewScene = false;
+            currentRoomNum++;
+            cameraAtNewScene = false;
+        }
     }
 
     private void CreateBossRoom() {
@@ -71,6 +68,16 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        /*
+        // Remove player.
+        if(currentRoomController.playerScript.completedLevel == true) {
+            if(currentRoomController.playerObject != null) 
+                GameObject.Destroy(currentRoomController.playerObject);
+            currentRoomController.playerScript.completedLevel = false;
+            CreateRoom();
+            lastRoomController.makeNextPlayer = true;
+        }*/
+
         // create new room for camera to look at.
         if(currentRoomController.playerScript != null && currentRoomController.playerScript.completedLevel == true) {
             currentRoomController.playerScript.completedLevel = false;
