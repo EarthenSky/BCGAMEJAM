@@ -14,4 +14,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Menu/Scenes/moveTo.unity
     guid: c07e2d04f1b87a14fa2dee70deeb103b
+  - enabled: 1
+    path: Assets/Menu/GabeRoomManagement 1/RoomManage.unity
+    guid: a61babc14b67a9a43b6a855bf58bfa2f
   m_configObjects: {}
