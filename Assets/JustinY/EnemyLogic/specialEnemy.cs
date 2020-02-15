@@ -20,7 +20,7 @@ public class specialEnemy : MonoBehaviour
     public GameObject Shot;
     public GameObject Player;
     private float total=0;
-    public float velocity = 30.0f;
+    public float velocity = 25.0f;
     float angle, angleUp, angleDown, x1velocity, y1velocity, x2velocity, y2velocity, x3velocity, y3velocity;
 
     void FixedUpdate(){

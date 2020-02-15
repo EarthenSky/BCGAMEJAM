@@ -29,7 +29,10 @@ public class ShotLogic : MonoBehaviour
         }
         else if ((collisionInfo.collider.name == "Enemy(Clone)") && (betrayal== 1)){
             GameObject.Destroy(gameObject);
-            collisionInfo.collider.gameObject.GetComponent<enemy>().Damage();
+            collisionInfo.collider.gameObject.GetComponent<enemy>().Ouch();
+            if (collisionInfo.collider.gameObject.GetComponent<enemy>().health < 0){
+                GameObject.Destroy(collisionInfo.collider.gameObject);
+            }
             
             
             

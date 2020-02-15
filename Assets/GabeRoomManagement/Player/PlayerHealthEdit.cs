@@ -20,4 +20,9 @@ public class PlayerHealthEdit : MonoBehaviour
             dead = 1;
         }
     }
+
+    void killPlayer()
+    {
+        health = 0;
+    }
 }

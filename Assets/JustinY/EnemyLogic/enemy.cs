@@ -14,7 +14,7 @@ public class enemy : MonoBehaviour
     public float velocity = 25.0f;
     Vector2 direction;
     float angle, xvelocity, yvelocity;
-    public void Damage(){
+    public void Ouch(){
         health--;
     }
     public void Follow(){
