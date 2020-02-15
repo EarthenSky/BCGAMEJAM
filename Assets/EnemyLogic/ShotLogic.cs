@@ -12,7 +12,6 @@ public class ShotLogic : MonoBehaviour
         //tweak power later 
     //log the thing it collides with in console
     void OnCollisionEnter2D(Collision2D collisionInfo){
-        Debug.Log(betrayal);
         if( collisionInfo.collider.name == "Tilemap" ){
             counter+=1;
         }
@@ -30,7 +29,7 @@ public class ShotLogic : MonoBehaviour
         }
         else if ((collisionInfo.collider.name == "Enemy(Clone)") && (betrayal== 1)){
             GameObject.Destroy(gameObject);
-            GameObject.Destroy(collisionInfo.collider.gameObject);
+            collisionInfo.collider.gameObject.GetComponent<enemy>().Damage();
             
             
             
