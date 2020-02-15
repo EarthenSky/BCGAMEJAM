@@ -1,10 +1,10 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
 public class ShieldBehavior : MonoBehaviour
 {
-    public GameObject shield;
+
+    public GameObject player;
     void Start()
     {
     }
@@ -12,6 +12,11 @@ public class ShieldBehavior : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        //calculates the angle between player and the mouse and changes the shield position based on it
+        float angle;
+        Vector3 pz = player.transform.position - Camera.main.ScreenToWorldPoint(Input.mousePosition);
+        pz.z = 0;
+        angle = Mathf.Rad2Deg * Mathf.Atan2(pz.y,pz.x) + 180;
+        transform.rotation = Quaternion.Euler(0, 0, angle);
     }
 }
