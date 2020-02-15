@@ -2,25 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class Controls : MonoBehaviour
 {
     public Rigidbody2D rb;
     public float moveSpeed;
 
+    public int grounded;
+   
+
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
+        
     }
     // Update is called once per frame
     void FixedUpdate()
     {
-        Vector2 forewardForce = new Vector2(1.5f,0);
-        Vector2 backwardForce = new Vector2(-1.5f,0);
-        Vector2 jumpForce = new Vector2(0,10f);
+        Vector2 forewardSpeed = new Vector2(7.0f,rb.velocity.y);
+        Vector2 backwardSpeed = new Vector2(-7.0f,rb.velocity.y);
+        Vector2 jumpForce = new Vector2(0,1000f);
 
         if(Input.GetKey("d"))
         {
-            rb.velocity = forewardForce;
+            rb.velocity = forewardSpeed;
+        }
+
+        if(Input.GetKey("a"))
+        {
+            rb.velocity = backwardSpeed;
+        }
+
+        if(Input.GetKeyDown("w") && grounded == 1)
+        {
+            rb.AddForce(jumpForce);
+            grounded = 0;
         }
     }
 }
