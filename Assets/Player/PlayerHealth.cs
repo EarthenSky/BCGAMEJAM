@@ -31,4 +31,13 @@ public class PlayerHealth : MonoBehaviour
             dead = true;
         }
     }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if(collision.collider.name == "Damage Blocks")
+        {
+            health = 0;
+            Debug.Log("hit spikes");
+        }
+    }
 }
