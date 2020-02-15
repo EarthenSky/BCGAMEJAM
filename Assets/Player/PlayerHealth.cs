@@ -8,7 +8,6 @@ public class PlayerHealth : MonoBehaviour
     public int health;
     public bool dead;
     public GameObject textBar;
-    public GameObject hpBar;
     private TextMesh hpText;
     void Start()
     {
@@ -22,9 +21,7 @@ public class PlayerHealth : MonoBehaviour
     void Update()
     {   
         //prints hp to text
-        float hpPercent = health/100f;
-        hpText.text = health.ToString() + " / 100";
-        hpBar.transform.localScale = new Vector3(hpPercent,0.2f,0);
+        hpText.text = "HP: " + health.ToString();
         //checks if player is dead
         if(health <= 0)
         {
