@@ -80,6 +80,7 @@ public class RoomManager : MonoBehaviour
             if(currentRoomController.playerObject != null) {
                 savedHealth = currentRoomController.playerObject.GetComponent<PlayerHealthEdit>().health;
                 GameObject.Destroy(currentRoomController.playerObject);
+                currentRoomController.DestroyEnemies();
             }
             CreateRoom();
         }

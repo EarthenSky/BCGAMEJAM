@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class ShieldCollision : MonoBehaviour
 {
+
+    private Collider2D myCol;
     // Start is called before the first frame update
     void Start()
     {
-        
+        myCol = this.GetComponent<Collider2D>();
     }
 
     // Update is called once per frame
@@ -18,7 +20,7 @@ public class ShieldCollision : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D collisionInfo) {
         if(collisionInfo.collider.name == "Tilemap") {
-            Physics2D.IgnoreCollision(collisionInfo.collider, this.GetComponent<Collider2D>());
+            Physics2D.IgnoreCollision(myCol, collisionInfo.collider);
         }
     }
 }

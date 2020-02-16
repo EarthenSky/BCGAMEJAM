@@ -4,11 +4,16 @@ using UnityEngine;
 
 public class ShotLogicEdit : MonoBehaviour
 {          
+    private Collider2D myCol;
     const int DAMAGE = 10;
 
     int betrayal = 0;
     int counter = 0;
     float count = 0;
+
+    void Start() {
+        myCol = this.GetComponent<Collider2D>();
+    }
     
     // tweak power later 
     // log the thing it collides with in console
@@ -18,6 +23,8 @@ public class ShotLogicEdit : MonoBehaviour
         } else if (collisionInfo.collider.name == "Shield" && betrayal == 0) {
             counter = 0;
             betrayal = 1;
+            
+            //Physics2D.IgnoreCollision(collisionInfo.collider, myCol, false);
             this.GetComponent<SpriteRenderer>().color = Color.blue;
         } else if (collisionInfo.collider.name == "Shield" && betrayal == 1) {
             counter += 1;
@@ -32,7 +39,7 @@ public class ShotLogicEdit : MonoBehaviour
                 GameObject.Destroy(collisionInfo.collider.gameObject);
             }  
         } else if((collisionInfo.collider.name == "Enemy(Clone)") && (betrayal == 0)) {
-            Physics2D.IgnoreCollision(collisionInfo.collider, this.GetComponent<Collider2D>());
+            //Physics2D.IgnoreCollision(collisionInfo.collider, myCol, true);
         }
     }
 
