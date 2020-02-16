@@ -6,8 +6,15 @@ public class EnemyEdit : MonoBehaviour
 {   
     // can set global.turret=false then change back to true afterwards to make it a non turret
     public bool turret = true;
-
-    public GameObject player;
+	
+    public int moveState;	
+	const int STATE_STATIC = 0:
+	const int STATE_HORIZONTAL_MOVE = 1;
+	const int STATE_VERTICAL_MOVE = 2;
+	const int STATE_RAND_MOVE = 3;
+	const int STATE_FOLLOW_MOVE = 4;
+    
+	public GameObject player;
     public int health = 3;
     private float total = 0;
     
@@ -62,8 +69,11 @@ public class EnemyEdit : MonoBehaviour
             total += queing;
         } if (!turret){
             this.GetComponent<Rigidbody2D>().velocity = new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
-        }
-
     }
 
+    if(moveState == STATE_STATIC) {
+	    // dont move
+	} else if (moveState == STATE_HORIZONTAL_MOVE) {
+
+	}
 }
