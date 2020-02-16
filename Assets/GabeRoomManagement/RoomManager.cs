@@ -11,7 +11,7 @@ public class RoomManager : MonoBehaviour
 
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
-    const int ROOM_COUNT = 10;
+    public const int ROOM_COUNT = 3;
     const int CAMERA_ZOOM_NORMAL = 12;
     public int currentRoomNum = 0;
     public int currentRoomSize = CAMERA_ZOOM_NORMAL;
@@ -79,7 +79,7 @@ public class RoomManager : MonoBehaviour
         currentRoomSize = currentRoomSize * 2;
         lastRoom = currentRoom;
         currentRoom = bossRoom;  // Get new room
-        currentRoom = Instantiate(bossRoom, new Vector3(ROOM_WIDTH * currentRoomNum, 0, 0), Quaternion.identity);
+        currentRoom = Instantiate(bossRoom, new Vector3(ROOM_WIDTH * (currentRoomNum+1), 0, 0), Quaternion.identity);
         
         // Get script portion of the room.
         lastRoomController = currentRoomController;
