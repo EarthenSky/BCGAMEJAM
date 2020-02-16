@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
     //const int ROOM_COUNT = 2; //set back to 10 later
-    public const int ROOM_COUNT = 3;
+    public const int ROOM_COUNT = 1;
 
     const int CAMERA_ZOOM_NORMAL = 12;
     public int currentRoomNum = 0;
@@ -94,6 +94,7 @@ public class RoomManager : MonoBehaviour
         SoundPlayer.clip = bossMusic;
         SoundPlayer.Play();
     }
+
 /*
     // This is called when room is exited.
     private void GotoNextRoom() {
@@ -103,6 +104,8 @@ public class RoomManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        bool isBossRoom = (currentRoomNum-1) >= ROOM_COUNT;
+
         // create new room for camera to look at.
         if(currentRoomController.playerScript != null && currentRoomController.playerScript.completedLevel == true) {
             currentRoomController.playerScript.completedLevel = false;
@@ -111,11 +114,13 @@ public class RoomManager : MonoBehaviour
                 GameObject.Destroy(currentRoomController.playerObject);
                 currentRoomController.DestroyEnemies();
             }
+
             CreateRoom();
+            currentRoomController.isBossRoom = isBossRoom;
         }
 
         // Camera slides over when not in room.
-        float mod = ((currentRoomNum-1) >= ROOM_COUNT ? ROOM_WIDTH : 0);
+        float mod = (isBossRoom ? ROOM_WIDTH : 0);
         if(camTrans.position.x < (currentRoomNum-1) * ROOM_WIDTH + mod) {
             camTrans.Translate(Vector3.right * Time.deltaTime * CAMERA_SPEED);
         } else if(camTrans.position.x > (currentRoomNum-1) * ROOM_WIDTH + mod) {
@@ -125,7 +130,6 @@ public class RoomManager : MonoBehaviour
                 // When camera gets there, create the new player.
                 currentRoomController.CreatePlayer(savedHealth);
                 currentRoomController.CreateEnemies();
-                //if(lastRoomController != null) lastRoomController.makeNextPlayer = false;
                 cameraAtNewScene = true;
             }
         }

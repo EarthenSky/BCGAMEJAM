@@ -38,14 +38,26 @@ public class ControlsEdit : MonoBehaviour
     {
         Vector2 forewardSpeed = new Vector2(7.0f, rb.velocity.y);
         Vector2 backwardSpeed = new Vector2(-7.0f, rb.velocity.y);
-        
+        Vector2 tmpVelocity = new Vector2(0, 0);
+
         if(Input.GetAxisRaw("Horizontal") > 0.1 || Input.GetKey("d")) {
-            rb.velocity = forewardSpeed;
+            tmpVelocity = forewardSpeed;
             m_SpriteRenderer.flipX = false;
         } else if(Input.GetAxis("Horizontal") < -0.1|| Input.GetKey("a")) {
-            rb.velocity = backwardSpeed;
+            tmpVelocity = backwardSpeed;
             m_SpriteRenderer.flipX = true;
         }
+
+        // Calculate the approximate distance that will be traversed
+        float distance = tmpVelocity.magnitude * Time.fixedDeltaTime;
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, tmpVelocity.normalized);
+    
+        // Check if the body's current velocity will result in a collision & stop movement
+        if(hit.collider != null) {
+            rb.velocity = tmpVelocity;
+        }    
+
+        // -------------------------------------------------------------------- //
 
         if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
             rb.AddForce(jumpForce);

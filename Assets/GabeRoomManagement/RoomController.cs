@@ -9,6 +9,7 @@ public class RoomController : MonoBehaviour
     //public bool makeNextPlayer = false;  // 
     public GameObject playerPrefab;
     public GameObject enemyPrefab;
+    public GameObject bossPrefab;
 
     public GameObject playerObject;
     public ControlsEdit playerScript;
@@ -16,6 +17,8 @@ public class RoomController : MonoBehaviour
     public GameObject currRoom;
     public Sprite backgroundImg;
     public List<Transform> enemyPositions;  // preset things
+
+    public bool isBossRoom = false;
 
     // Start is called before the first frame update
     void Start()
@@ -41,11 +44,17 @@ public class RoomController : MonoBehaviour
     }
 
     public void CreateEnemies() {
-        // instantiate an enemy in each position.
-        foreach(Transform transform in enemyPositions) {
-            GameObject tmpEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
-            tmpEnemy.GetComponent<EnemyEdit>().player = playerObject; 
+        if(isBossRoom) {
+            // instantiate an enemy in each position.
+            foreach(Transform transform in enemyPositions) {
+                GameObject tmpEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
+                tmpEnemy.GetComponent<EnemyEdit>().player = playerObject; 
+            }
+        } else {
+            //Instantiate();
+            Debug.Log("SPAWN BOSS");
         }
+        
     }
 
     //TODO: implement this.
