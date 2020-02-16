@@ -17,6 +17,10 @@ public class ControlsEdit : MonoBehaviour
 
     public float timeCounter = 2f;
 
+    //Animation related initializers
+    public SpriteRenderer m_SpriteRenderer;
+    public Animator animator;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -24,6 +28,9 @@ public class ControlsEdit : MonoBehaviour
 
         shield.SetActive(false);
         timeCounter = SHIELD_COOLDOWN;
+
+        //Animation Related start items
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -43,14 +50,19 @@ public class ControlsEdit : MonoBehaviour
             grounded = 0;
         }
 
-    /*
-        //detects mouse hold and turns on shield
-        if(Input.GetMouseButton(0) || Input.GetButton("squareButton")) {
-            shield.SetActive(true);
-        } else {
-            shield.SetActive(false);
+        //Sets animation parameters
+        animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("verticalSpeed", rb.velocity.y);
+
+        if ((rb.velocity.x) > 0)
+        {
+            m_SpriteRenderer.flipX = false;
         }
-        */
+
+        else if (rb.velocity.x < 0)
+        {
+            m_SpriteRenderer.flipX = true;
+        }
     }
 
     const float SHIELD_COOLDOWN = 1.5f;
