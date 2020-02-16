@@ -11,7 +11,9 @@ public class RoomManager : MonoBehaviour
 
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
+    const int ROOM_COUNT = 2; //set back to 10 later
     public const int ROOM_COUNT = 3;
+
     const int CAMERA_ZOOM_NORMAL = 12;
     public int currentRoomNum = 0;
     public int currentRoomSize = CAMERA_ZOOM_NORMAL;
@@ -86,9 +88,11 @@ public class RoomManager : MonoBehaviour
         currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
         currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
         currentRoomController.backgroundImg = this.bgSprite; //pass background sprite to the room
-       
+
         //add the boss music to the boss room
-        soundGameObject.GetComponent<AudioSource>().clip = bossMusic;
+        AudioSource SoundPlayer = soundGameObject.GetComponent<AudioSource>(); 
+        SoundPlayer.clip = bossMusic;
+        SoundPlayer.Play();
     }
 /*
     // This is called when room is exited.
