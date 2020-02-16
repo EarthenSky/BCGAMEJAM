@@ -25,8 +25,8 @@ public class RoomController : MonoBehaviour
         background.AddComponent<SpriteRenderer>();
         background.GetComponent<SpriteRenderer>().sprite = backgroundImg;
         background.transform.parent = currRoom.transform;
-        background.transform.localScale = new Vector3(2.7f, 2.2f, 0);
-        
+        background.transform.localScale = new Vector3(2.7f, 2.3f, 0);
+        background.transform.localPosition = new Vector3(0, 0, 10f);
     }
 
     public void CreatePlayer(int health) {
