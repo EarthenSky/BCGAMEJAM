@@ -13,6 +13,8 @@ public class RoomManager : MonoBehaviour
     const int ROOM_COUNT = 10;
     public int currentRoomNum = 0;
     public List<GameObject> rooms;
+
+    public int savedHealth = 100;
     
     public GameObject currentRoom;
     public RoomController currentRoomController;
@@ -74,8 +76,10 @@ public class RoomManager : MonoBehaviour
         // create new room for camera to look at.
         if(currentRoomController.playerScript != null && currentRoomController.playerScript.completedLevel == true) {
             currentRoomController.playerScript.completedLevel = false;
-            if(currentRoomController.playerObject != null) 
+            if(currentRoomController.playerObject != null) {
+                savedHealth = currentRoomController.playerObject.GetComponent<PlayerHealthEdit>().health;
                 GameObject.Destroy(currentRoomController.playerObject);
+            }
             CreateRoom();
         }
 
@@ -87,7 +91,7 @@ public class RoomManager : MonoBehaviour
         } else {  // case: camera is in the right position. 
             if(cameraAtNewScene == false) {
                 // When camera gets there, create the new player.
-                currentRoomController.CreatePlayer();
+                currentRoomController.CreatePlayer(savedHealth);
                 //if(lastRoomController != null) lastRoomController.makeNextPlayer = false;
                 cameraAtNewScene = true;
             }
