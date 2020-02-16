@@ -39,13 +39,13 @@ public class ShotLogic : MonoBehaviour
         }
     }
     void Update(){
-        if (counter>=10){
+        if (counter>=7){
             GameObject.Destroy(gameObject);
         }
-        if (count<10){
+        if (count<0.5f){
             count+=Time.deltaTime;
         }
-        else if (count>10.0f){
+        else if (count>0.5f){
             GameObject.Destroy(gameObject);
         }
     }

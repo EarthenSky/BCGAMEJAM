@@ -12,11 +12,18 @@ public class ControlsEdit : MonoBehaviour
 
     private Rigidbody2D rb;
     public GameObject shield;
+    public GameObject shieldRotate;
+    public GameObject crosshairRotate;
+
+    public float timeCounter = 2f;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         jumpForce = new Vector2(0, 1800f);
+
+        shield.SetActive(false);
+        timeCounter = SHIELD_COOLDOWN;
     }
 
     // Update is called once per frame
@@ -35,11 +42,21 @@ public class ControlsEdit : MonoBehaviour
             rb.AddForce(jumpForce);
             grounded = 0;
         }
+    }
 
+    const float SHIELD_COOLDOWN = 0.1f;
+    const float SHEILD_DECAY_TIME = 0.1f;
+
+    void Update()
+    {
         //detects mouse hold and turns on shield
-        if(Input.GetMouseButton(0) || Input.GetButton("squareButton")) {
+        if((Input.GetMouseButton(0) || Input.GetButton("squareButton")) && timeCounter >= SHIELD_COOLDOWN) {
+            timeCounter = 0;
+            shieldRotate.transform.rotation = crosshairRotate.transform.rotation;
             shield.SetActive(true);
-        } else {
+        }
+        timeCounter += Time.deltaTime;
+        if(timeCounter >= SHEILD_DECAY_TIME) {
             shield.SetActive(false);
         }
     }
