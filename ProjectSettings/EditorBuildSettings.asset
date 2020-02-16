@@ -5,13 +5,16 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 1
+  - enabled: 0
     path: Assets/Liver Sec/Map Assets/SampleScene.unity
     guid: 2cda990e2423bbf4892e6590ba056729
   - enabled: 1
     path: Assets/Menu/Scenes/StartPlace.unity
     guid: 9f895da118252364e96054f423b80e2a
-  - enabled: 1
+  - enabled: 0
     path: Assets/Menu/Scenes/moveTo.unity
     guid: c07e2d04f1b87a14fa2dee70deeb103b
+  - enabled: 1
+    path: Assets/GabeRoomManagement/RoomManage.unity
+    guid: a1d47b98680a5e64bbb10d90d4c3da08
   m_configObjects: {}
