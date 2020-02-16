@@ -12,7 +12,7 @@ public class RoomManager : MonoBehaviour
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
     const int ROOM_COUNT = 10;
-    const int CAMERA_ZOOM_NORMAL = 14;
+    const int CAMERA_ZOOM_NORMAL = 12;
     public int currentRoomNum = 0;
     public int currentRoomSize = CAMERA_ZOOM_NORMAL;
     public List<GameObject> rooms;
