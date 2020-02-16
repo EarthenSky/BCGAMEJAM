@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
-  m_Name: spikesLeft
+  m_Name: spikesleft
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 281abc0f6d7e71a4a9561eac73a0b3cd, type: 3}
+  m_Sprite: {fileID: 21300000, guid: f12949ebfc769aa4296210b29e9a7e70, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1

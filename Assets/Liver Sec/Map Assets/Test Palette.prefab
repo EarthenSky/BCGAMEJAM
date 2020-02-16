@@ -41,6 +41,15 @@ Tilemap:
   m_GameObject: {fileID: 5982932699328196367}
   m_Enabled: 1
   m_Tiles:
+  - first: {x: 4, y: -8, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 43
+      m_TileSpriteIndex: 40
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      m_AllTileFlags: 1073741825
   - first: {x: -1, y: -7, z: 0}
     second:
       serializedVersion: 2
@@ -77,7 +86,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 3, y: -7, z: 0}
+  - first: {x: 4, y: -7, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 40
@@ -86,7 +95,7 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 4, y: -7, z: 0}
+  - first: {x: 5, y: -7, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 41
@@ -95,20 +104,11 @@ Tilemap:
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
       m_AllTileFlags: 1073741825
-  - first: {x: 5, y: -7, z: 0}
+  - first: {x: 6, y: -7, z: 0}
     second:
       serializedVersion: 2
       m_TileIndex: 42
       m_TileSpriteIndex: 39
-      m_TileMatrixIndex: 0
-      m_TileColorIndex: 0
-      m_TileObjectToInstantiateIndex: 65535
-      m_AllTileFlags: 1073741825
-  - first: {x: 6, y: -7, z: 0}
-    second:
-      serializedVersion: 2
-      m_TileIndex: 43
-      m_TileSpriteIndex: 40
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -520,13 +520,13 @@ Tilemap:
   - m_RefCount: 1
     m_Data: {fileID: 11400000, guid: 1556015fcf7ceec40aa2d60083efa720, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: e61e9e2f5d5e5194eb27c2334ae997b4, type: 2}
+    m_Data: {fileID: 11400000, guid: 08770938394d19046938e4d96403cfda, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: c8d8aeb5b5909b941ac763683117350b, type: 2}
+    m_Data: {fileID: 11400000, guid: c622fd128974aea43b041cccecd8227b, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: bdea6b6c7df2cee4d875a75dcac5c689, type: 2}
+    m_Data: {fileID: 11400000, guid: 14ab48724a192c344bc771f541eefacc, type: 2}
   - m_RefCount: 1
-    m_Data: {fileID: 11400000, guid: 5918426fb380a874d9c68e50c704ae4c, type: 2}
+    m_Data: {fileID: 11400000, guid: f7e15c6b1f4a28d459cb6ebe964071be, type: 2}
   m_TileSpriteArray:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: abaf9a3e356c0b0409a160fe8b3c8a97, type: 3}
@@ -603,13 +603,13 @@ Tilemap:
   - m_RefCount: 2
     m_Data: {fileID: 21300000, guid: 1faadc8d5d658624aa38e9a64aaed6d6, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 0f52a45982c3dee4abe2f056f1136d06, type: 3}
+    m_Data: {fileID: 21300000, guid: 0a00ec9c637ae1041bd2c15ad0d3bb47, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: ec83c1ad787a07f41833d034363b3f7e, type: 3}
+    m_Data: {fileID: 21300000, guid: f12949ebfc769aa4296210b29e9a7e70, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 29ea81fc61d511840bc8bebc77e0c981, type: 3}
+    m_Data: {fileID: 21300000, guid: aaba4c69182171f4a9154d810be6fb88, type: 3}
   - m_RefCount: 1
-    m_Data: {fileID: 21300000, guid: 281abc0f6d7e71a4a9561eac73a0b3cd, type: 3}
+    m_Data: {fileID: 21300000, guid: a7bce2c2d89f7e74ea7993dd9ed35e8c, type: 3}
   m_TileMatrixArray:
   - m_RefCount: 44
     m_Data:
@@ -635,8 +635,8 @@ Tilemap:
   m_TileObjectToInstantiateArray: []
   m_AnimationFrameRate: 1
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Origin: {x: -1, y: -7, z: 0}
-  m_Size: {x: 8, y: 7, z: 1}
+  m_Origin: {x: -1, y: -8, z: 0}
+  m_Size: {x: 8, y: 8, z: 1}
   m_TileAnchor: {x: 0.5, y: 0.5, z: 0}
   m_TileOrientation: 0
   m_TileOrientationMatrix:
@@ -743,7 +743,7 @@ Grid:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8848022173325373620}
   m_Enabled: 1
-  m_CellSize: {x: 1, y: 1, z: 0}
+  m_CellSize: {x: 0.7, y: 0.7, z: 0}
   m_CellGap: {x: 0, y: 0, z: 0}
   m_CellLayout: 0
   m_CellSwizzle: 0

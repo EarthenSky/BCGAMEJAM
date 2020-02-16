@@ -34,4 +34,14 @@ public class PlayerHealthEdit : MonoBehaviour
             //SceneManager.LoadScene("TODO: put a scene here");
         }
     }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Damage Blocks")
+        {
+            health = 0;
+            //should lead to the scene above
+        }
+
+    }
 }
