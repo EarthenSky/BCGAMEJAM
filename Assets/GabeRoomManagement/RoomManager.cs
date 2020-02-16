@@ -86,17 +86,16 @@ public class RoomManager : MonoBehaviour
         currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
         currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
         currentRoomController.backgroundImg = this.bgSprite; //pass background sprite to the room
-        
-
+       
         //add the boss music to the boss room
         soundGameObject.GetComponent<AudioSource>().clip = bossMusic;
     }
-
+/*
     // This is called when room is exited.
     private void GotoNextRoom() {
         
     }
-
+*/
     // Update is called once per frame
     void Update()
     {
@@ -112,10 +111,11 @@ public class RoomManager : MonoBehaviour
         }
 
         // Camera slides over when not in room.
-        if(camTrans.position.x < (currentRoomNum-1) * ROOM_WIDTH) {
+        float mod = (currentRoomNum >= (currentRoomNum-1) ? ROOM_WIDTH : 0);
+        if(camTrans.position.x < (currentRoomNum-1) * ROOM_WIDTH + mod) {
             camTrans.Translate(Vector3.right * Time.deltaTime * CAMERA_SPEED);
-        } else if(camTrans.position.x > (currentRoomNum-1) * ROOM_WIDTH) {
-            camTrans.position = new Vector3((currentRoomNum-1) * ROOM_WIDTH, camTrans.position.y, camTrans.position.z);
+        } else if(camTrans.position.x > (currentRoomNum-1) * ROOM_WIDTH + mod) {
+            camTrans.position = new Vector3((currentRoomNum-1) * ROOM_WIDTH + mod, camTrans.position.y, camTrans.position.z);
         } else {  // case: camera is in the right position. 
             if(cameraAtNewScene == false) {
                 // When camera gets there, create the new player.
