@@ -28,6 +28,7 @@ public class RoomManager : MonoBehaviour
     public Transform camTrans;
     public Camera mainCam;
     public GameObject playerPrefab;
+    public Sprite bgSprite;
     private bool cameraAtNewScene = true;
 
     void Start()
@@ -59,6 +60,7 @@ public class RoomManager : MonoBehaviour
             lastRoomController = currentRoomController;
             currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
             currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
+            currentRoomController.backgroundImg = this.bgSprite; //pass background sprite to the room
         }
 
         currentRoomNum++;

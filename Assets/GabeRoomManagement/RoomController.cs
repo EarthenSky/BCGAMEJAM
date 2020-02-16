@@ -12,13 +12,24 @@ public class RoomController : MonoBehaviour
 
     public GameObject playerObject;
     public ControlsEdit playerScript;
-
+    public GameObject background;
+    public GameObject currRoom;
+    public Sprite backgroundImg;
     public List<Transform> enemyPositions;  // preset things
 
     // Start is called before the first frame update
     void Start()
     { 
         //transform.Find("Grid").Find("Tilemap").gameObject.AddComponent<TilemapCollision>();
+        
+        currRoom = GameObject.Find("RoomManager").GetComponent<RoomManager>().currentRoom;
+        background = new GameObject("Background");
+        background.AddComponent<SpriteRenderer>();
+        background.GetComponent<SpriteRenderer>().sprite = backgroundImg;
+        
+        background.transform.parent = currRoom.transform;
+        background.transform.localScale = new Vector3(2.7f, 2.3f, 0);
+        background.transform.localPosition = new Vector3(0, 0, 10f);
     }
 
     public void CreatePlayer(int health) {

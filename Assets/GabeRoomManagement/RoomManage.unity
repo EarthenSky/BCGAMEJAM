@@ -509,6 +509,7 @@ MonoBehaviour:
   mainCam: {fileID: 2127440178}
   playerPrefab: {fileID: 3344059791292776401, guid: 7dc551fb697f1e24ea252370c0803d75,
     type: 3}
+  bgSprite: {fileID: 21300000, guid: fb823de84e95c4140886346a3bb7b8a3, type: 3}
 --- !u!1 &1468564366
 GameObject:
   m_ObjectHideFlags: 0
