@@ -14,14 +14,17 @@ public class Controls : MonoBehaviour
     public int grounded;
     public float counter;
 
-   
-
+    //Animation related initializers
+    public SpriteRenderer m_SpriteRenderer;
+    public Animator animator;
 
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
         shield.SetActive(false);
-        
+
+        //Animation Related start items
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
     // Update is called once per frame
     void FixedUpdate()
@@ -45,7 +48,19 @@ public class Controls : MonoBehaviour
             rb.AddForce(jumpForce);
             grounded = 0;
         }
-        
+        //Sets animation parameters
+        animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("verticalSpeed", rb.velocity.y);
+
+        if ((rb.velocity.x) > 0)
+        {
+            m_SpriteRenderer.flipX = false;
+        }
+
+        else if (rb.velocity.x < 0)
+        {
+            m_SpriteRenderer.flipX = true;
+        }
     }
 
     void Update()

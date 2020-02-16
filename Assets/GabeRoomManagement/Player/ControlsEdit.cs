@@ -17,6 +17,10 @@ public class ControlsEdit : MonoBehaviour
 
     public float timeCounter = 2f;
 
+    //Animation related initializers
+    public SpriteRenderer m_SpriteRenderer;
+    public Animator animator;
+
     void Start()
     {
         rb = gameObject.GetComponent<Rigidbody2D>();
@@ -24,6 +28,9 @@ public class ControlsEdit : MonoBehaviour
 
         shield.SetActive(false);
         timeCounter = SHIELD_COOLDOWN;
+
+        //Animation Related start items
+        m_SpriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -41,6 +48,16 @@ public class ControlsEdit : MonoBehaviour
         if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
             rb.AddForce(jumpForce);
             grounded = 0;
+        }
+        
+        //Sets animation parameters
+        animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
+        animator.SetFloat("verticalSpeed", rb.velocity.y);
+
+        if ((rb.velocity.x) > 0) {
+            m_SpriteRenderer.flipX = false;
+        } else if (rb.velocity.x < 0) {
+            m_SpriteRenderer.flipX = true;
         }
     }
 
