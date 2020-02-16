@@ -11,7 +11,7 @@ public class SpecialEnemyEdit : MonoBehaviour
     }
     
     void joyOfCreation(float xv, float yv){
-        GameObject s= Instantiate(Shot, transform.position, Quaternion.identity);
+        GameObject s = Instantiate(Shot, transform.position, Quaternion.identity);
         s.GetComponent<Rigidbody2D>().velocity = new Vector2(xv,yv);
     }
 

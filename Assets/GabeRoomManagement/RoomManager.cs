@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour
     const int ROOM_COUNT = 10;
     public int currentRoomNum = 0;
     public List<GameObject> rooms;
+    public GameObject bossRoom;
 
     public int savedHealth = 100;
     

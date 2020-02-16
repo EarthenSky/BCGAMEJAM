@@ -39,9 +39,9 @@ public class RoomController : MonoBehaviour
 
     //TODO: implement this.
     public void DestroyEnemies() {
-       foreach(Transform t in enemyPositions) {
-	       Destroy(t.gameObject);
-		   }
+        foreach(Transform t in enemyPositions) {
+	       Destroy(t.GetChild(0).gameObject); // destroy the enemies.
+		}
     }
 
     // Update is called once per frame
