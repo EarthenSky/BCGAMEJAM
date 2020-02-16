@@ -5,8 +5,8 @@ using UnityEngine;
 //player gameobject and the mouse position
 public class ShieldBehaviorEdit : MonoBehaviour
 {
-
     public GameObject player;
+
     void Start()
     {
     }

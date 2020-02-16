@@ -32,14 +32,16 @@ public class RoomController : MonoBehaviour
     public void CreateEnemies() {
         // instantiate an enemy in each position.
         foreach(Transform transform in enemyPositions) {
-            GameObject tmpEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, gameObject.transform);
+            GameObject tmpEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
             tmpEnemy.GetComponent<EnemyEdit>().player = playerObject; 
         }
     }
 
     //TODO: implement this.
     public void DestroyEnemies() {
-        
+        foreach(Transform t in enemyPositions) {
+	       Destroy(t.GetChild(0).gameObject); // destroy the enemies.
+		}
     }
 
     // Update is called once per frame
