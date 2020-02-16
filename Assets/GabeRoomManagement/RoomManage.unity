@@ -501,6 +501,7 @@ MonoBehaviour:
   - {fileID: 5052453609483741085, guid: 0db73eff86e228449a1238be74828d0c, type: 3}
   bossRoom: {fileID: 4859143382976253457, guid: 696d1158715065d4e96373d3d62a3607,
     type: 3}
+  bossMusic: {fileID: 8300000, guid: 762096b7d6738c746b82bb6169162b3e, type: 3}
   savedHealth: 100
   currentRoom: {fileID: 0}
   currentRoomController: {fileID: 0}
@@ -510,6 +511,7 @@ MonoBehaviour:
   mainCam: {fileID: 2127440178}
   playerPrefab: {fileID: 3344059791292776401, guid: 7dc551fb697f1e24ea252370c0803d75,
     type: 3}
+  soundGameObject: {fileID: 1468564366}
   bgSprite: {fileID: 21300000, guid: fb823de84e95c4140886346a3bb7b8a3, type: 3}
 --- !u!1 &1468564366
 GameObject:
@@ -522,7 +524,7 @@ GameObject:
   - component: {fileID: 1468564368}
   - component: {fileID: 1468564367}
   m_Layer: 0
-  m_Name: GameObject
+  m_Name: background music
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -538,7 +540,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: 85f31609b8e427448bec1b0b8f317957, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 6afba6af4cf65a54bb1653478b557981, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
