@@ -40,7 +40,7 @@ public class RoomController : MonoBehaviour
     //TODO: implement this.
     public void DestroyEnemies() {
         foreach(Transform t in enemyPositions) {
-	       Destroy(t.GetChild(0).gameObject); // destroy the enemies.
+	       GameObject.Destroy(t.GetChild(0).gameObject); // destroy the enemies.
 		}
     }
 

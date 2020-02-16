@@ -7,11 +7,14 @@ using UnityEngine;
 public class RoomManager : MonoBehaviour
 {
     const float CAMERA_SPEED = 40f;
+    const float CAMERA_ZOOM_SPEED = 0.25f;
 
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
     const int ROOM_COUNT = 10;
+    const int CAMERA_ZOOM_NORMAL = 14;
     public int currentRoomNum = 0;
+    public int currentRoomSize = CAMERA_ZOOM_NORMAL;
     public List<GameObject> rooms;
     public GameObject bossRoom;
 
@@ -23,6 +26,7 @@ public class RoomManager : MonoBehaviour
     public RoomController lastRoomController;
     
     public Transform camTrans;
+    public Camera mainCam;
     public GameObject playerPrefab;
     private bool cameraAtNewScene = true;
 
@@ -48,7 +52,7 @@ public class RoomManager : MonoBehaviour
 
             // Make a new room.
             lastRoom = currentRoom;
-            currentRoom = GetRandomRoom();  // Get new room
+            currentRoom = GetRandomRoom();
             currentRoom = Instantiate(currentRoom, new Vector3(ROOM_WIDTH * currentRoomNum, 0, 0), Quaternion.identity);
             
             // Get script portion of the room.
@@ -62,8 +66,20 @@ public class RoomManager : MonoBehaviour
     }
 
     private void CreateBossRoom() {
-        // todo: this.
         Debug.Log("Boss Room Spawns");
+
+        // Delete last room
+        if(lastRoom != null) GameObject.Destroy(lastRoom);  // Remove the old room.
+
+        // Make a new room.
+        lastRoom = currentRoom;
+        currentRoom = bossRoom;  // Get new room
+        currentRoom = Instantiate(bossRoom, new Vector3(ROOM_WIDTH * currentRoomNum, 0, 0), Quaternion.identity);
+        
+        // Get script portion of the room.
+        lastRoomController = currentRoomController;
+        currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
+        currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
     }
 
     // This is called when room is exited.
@@ -99,6 +115,13 @@ public class RoomManager : MonoBehaviour
                 cameraAtNewScene = true;
             }
         }
+
+        // Do camera zoom
+        if(mainCam.orthographicSize < currentRoomSize) {
+            mainCam.orthographicSize += CAMERA_ZOOM_SPEED;
+        } else if(mainCam.orthographicSize > currentRoomSize) {
+            mainCam.orthographicSize = currentRoomSize;
+        } 
 
     }
 }
