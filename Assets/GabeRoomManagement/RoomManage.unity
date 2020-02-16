@@ -497,6 +497,7 @@ MonoBehaviour:
   - {fileID: 8954497793324132165, guid: a3b1c570e129f0c4ba332e84e332d3ed, type: 3}
   - {fileID: 9166201033728405332, guid: 14a8d9cc66f3358428e0a2e1b27a8347, type: 3}
   - {fileID: 2011525061868754954, guid: d0505f0dcbf52524c8d1b4c07118b32c, type: 3}
+  bossRoom: {fileID: 0}
   savedHealth: 100
   currentRoom: {fileID: 0}
   currentRoomController: {fileID: 0}
@@ -505,6 +506,7 @@ MonoBehaviour:
   camTrans: {fileID: 2127440179}
   playerPrefab: {fileID: 3344059791292776401, guid: 4caf609b9a07f844ba49b189b2ea2faa,
     type: 3}
+  bgSprite: {fileID: 21300000, guid: fb823de84e95c4140886346a3bb7b8a3, type: 3}
 --- !u!1 &1468564366
 GameObject:
   m_ObjectHideFlags: 0
