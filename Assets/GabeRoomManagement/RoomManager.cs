@@ -24,6 +24,7 @@ public class RoomManager : MonoBehaviour
     
     public Transform camTrans;
     public GameObject playerPrefab;
+    public GameObject soundGameObject;
     public Sprite bgSprite;
     private bool cameraAtNewScene = true;
 
