@@ -42,19 +42,10 @@ public class ControlsEdit : MonoBehaviour
             rb.AddForce(jumpForce);
             grounded = 0;
         }
-
-    /*
-        //detects mouse hold and turns on shield
-        if(Input.GetMouseButton(0) || Input.GetButton("squareButton")) {
-            shield.SetActive(true);
-        } else {
-            shield.SetActive(false);
-        }
-        */
     }
 
-    const float SHIELD_COOLDOWN = 1.5f;
-    const float SHEILD_DECAY_TIME = 1f;
+    const float SHIELD_COOLDOWN = 0.1f;
+    const float SHEILD_DECAY_TIME = 0.1f;
 
     void Update()
     {

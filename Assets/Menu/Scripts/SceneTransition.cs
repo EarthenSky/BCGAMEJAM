@@ -13,9 +13,7 @@ public class SceneTransition : MonoBehaviour
     // We may want to change "moveTo" to a variable if we want to resuse this script for restarting the game or other scene tansitions
     string destination = "moveTo";
     
-    
-    void OnTriggerEnter2D(Collider2D Other) 
-    {
+    void OnTriggerEnter2D(Collider2D Other) {
         SceneManager.LoadScene(destination);
     }
 }
