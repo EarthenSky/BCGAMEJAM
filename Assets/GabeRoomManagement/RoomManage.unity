@@ -485,7 +485,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   currentRoomNum: 0
-  currentRoomSize: 14
+  currentRoomSize: 12
   rooms:
   - {fileID: 3551835575446837351, guid: a70d30fa550c4704cacbbb3bf4eb9a54, type: 3}
   - {fileID: 5540630226612348287, guid: 8f6ea6f2f986f4e4e9ebd443fde2a712, type: 3}
