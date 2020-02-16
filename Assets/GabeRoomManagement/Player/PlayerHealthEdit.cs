@@ -17,7 +17,6 @@ public class PlayerHealthEdit : MonoBehaviour
 
         //sets up the textmesh and the starting values of the health and dead variables
         hpText = textBar.GetComponent<TextMesh>();
-        health = 100;
         dead = false;
     }
 

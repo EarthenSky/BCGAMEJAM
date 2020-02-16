@@ -487,12 +487,13 @@ MonoBehaviour:
   currentRoomNum: 0
   rooms:
   - {fileID: 3551835575446837351, guid: 71fad836ec8574f4f8b8fe19561bf3f5, type: 3}
+  savedHealth: 100
   currentRoom: {fileID: 0}
   currentRoomController: {fileID: 0}
   lastRoom: {fileID: 0}
   lastRoomController: {fileID: 0}
   camTrans: {fileID: 2127440179}
-  playerPrefab: {fileID: 4045745939608578207, guid: 2b35a9149c551d241ba9ede837c6ab10,
+  playerPrefab: {fileID: 3344059791292776401, guid: 4caf609b9a07f844ba49b189b2ea2faa,
     type: 3}
 --- !u!1 &1468564366
 GameObject:

@@ -21,9 +21,10 @@ public class RoomController : MonoBehaviour
 
     }
 
-    public void CreatePlayer() {
+    public void CreatePlayer(int health) {
         playerObject = Instantiate(playerPrefab, transform.Find("Spawn").position, Quaternion.identity);
         playerScript = playerObject.GetComponent<ControlsEdit>();
+        playerObject.GetComponent<PlayerHealthEdit>().health = health;  // only calling once so its good.
     }
 
     public void CreateEnemies() {
