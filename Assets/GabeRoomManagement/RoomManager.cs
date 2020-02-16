@@ -13,6 +13,7 @@ public class RoomManager : MonoBehaviour
     const int ROOM_COUNT = 10;
     public int currentRoomNum = 0;
     public List<GameObject> rooms;
+    public GameObject bossRoom;
 
     public int savedHealth = 100;
     
@@ -79,6 +80,7 @@ public class RoomManager : MonoBehaviour
             if(currentRoomController.playerObject != null) {
                 savedHealth = currentRoomController.playerObject.GetComponent<PlayerHealthEdit>().health;
                 GameObject.Destroy(currentRoomController.playerObject);
+                currentRoomController.DestroyEnemies();
             }
             CreateRoom();
         }

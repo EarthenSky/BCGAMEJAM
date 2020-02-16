@@ -4,20 +4,27 @@ using UnityEngine;
 
 public class ShotLogicEdit : MonoBehaviour
 {          
+    private Collider2D myCol;
     const int DAMAGE = 10;
 
     int betrayal = 0;
     int counter = 0;
     float count = 0;
+
+    void Start() {
+        myCol = this.GetComponent<Collider2D>();
+    }
     
     // tweak power later 
     // log the thing it collides with in console
     void OnCollisionEnter2D(Collision2D collisionInfo) {
-        if(collisionInfo.collider.name == "Tilemap") {
+        if(collisionInfo.collider.name == "Tilemap" || collisionInfo.gameObject.name == "Damage Blocks") {
             counter += 1;
         } else if (collisionInfo.collider.name == "Shield" && betrayal == 0) {
             counter = 0;
             betrayal = 1;
+            
+            //Physics2D.IgnoreCollision(collisionInfo.collider, myCol, false);
             this.GetComponent<SpriteRenderer>().color = Color.blue;
         } else if (collisionInfo.collider.name == "Shield" && betrayal == 1) {
             counter += 1;
@@ -31,11 +38,13 @@ public class ShotLogicEdit : MonoBehaviour
             if (collisionInfo.collider.gameObject.GetComponent<EnemyEdit>().health < 0){
                 GameObject.Destroy(collisionInfo.collider.gameObject);
             }  
+        } else if((collisionInfo.collider.name == "Enemy(Clone)") && (betrayal == 0)) {
+            //Physics2D.IgnoreCollision(collisionInfo.collider, myCol, true);
         }
     }
 
-    const int MAX_BOUNCE = 6;
-    const float ALIVE_TIME = 5f;
+    const int MAX_BOUNCE = 15;
+    const float ALIVE_TIME = 6f;
 
     void Update() {
         // max bounces
