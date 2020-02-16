@@ -49,24 +49,20 @@ public class ControlsEdit : MonoBehaviour
             rb.AddForce(jumpForce);
             grounded = 0;
         }
-
+        
         //Sets animation parameters
         animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("verticalSpeed", rb.velocity.y);
 
-        if ((rb.velocity.x) > 0)
-        {
+        if ((rb.velocity.x) > 0) {
             m_SpriteRenderer.flipX = false;
-        }
-
-        else if (rb.velocity.x < 0)
-        {
+        } else if (rb.velocity.x < 0) {
             m_SpriteRenderer.flipX = true;
         }
     }
 
-    const float SHIELD_COOLDOWN = 1.5f;
-    const float SHEILD_DECAY_TIME = 1f;
+    const float SHIELD_COOLDOWN = 0.1f;
+    const float SHEILD_DECAY_TIME = 0.1f;
 
     void Update()
     {

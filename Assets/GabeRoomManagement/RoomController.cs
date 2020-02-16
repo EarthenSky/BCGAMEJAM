@@ -23,6 +23,8 @@ public class RoomController : MonoBehaviour
 
     public void CreatePlayer(int health) {
         playerObject = Instantiate(playerPrefab, transform.Find("Spawn").position, Quaternion.identity);
+        playerObject.name = "Player";
+
         playerScript = playerObject.GetComponent<ControlsEdit>();
         playerObject.GetComponent<PlayerHealthEdit>().health = health;  // only calling once so its good.
     }
@@ -30,8 +32,16 @@ public class RoomController : MonoBehaviour
     public void CreateEnemies() {
         // instantiate an enemy in each position.
         foreach(Transform transform in enemyPositions) {
-            Instantiate(enemyPrefab, transform.position, Quaternion.identity, gameObject.transform);
+            GameObject tmpEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
+            tmpEnemy.GetComponent<EnemyEdit>().player = playerObject; 
         }
+    }
+
+    //TODO: implement this.
+    public void DestroyEnemies() {
+        foreach(Transform t in enemyPositions) {
+	       Destroy(t.GetChild(0).gameObject); // destroy the enemies.
+		}
     }
 
     // Update is called once per frame

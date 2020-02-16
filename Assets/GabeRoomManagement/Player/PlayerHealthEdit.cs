@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealthEdit : MonoBehaviour
 {
@@ -28,9 +29,19 @@ public class PlayerHealthEdit : MonoBehaviour
         hpText.text = health.ToString() + " / 100";
         hpBar.transform.localScale = new Vector3(hpPercent,0.2f,1);
         //checks if player is dead
-        if(health <= 0)
-        {
+        if(health <= 0) {
             dead = true;
+            //SceneManager.LoadScene("TODO: put a scene here");
         }
+    }
+
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.name == "Damage Blocks")
+        {
+            health = 0;
+            //should lead to the scene above
+        }
+
     }
 }

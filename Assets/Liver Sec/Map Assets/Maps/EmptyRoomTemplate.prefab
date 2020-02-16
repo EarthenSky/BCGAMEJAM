@@ -7,6 +7,36 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 2620449604244960899, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
+        type: 3}
+      propertyPath: m_Tiles.Array.data[0].second.m_AllTileFlags
+      value: 1073741827
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620449604244960899, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
+        type: 3}
+      propertyPath: m_TileAssetArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620449604244960899, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
+        type: 3}
+      propertyPath: m_TileSpriteArray.Array.data[0].m_Data
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620449604244960899, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.r
+      value: 0.84970266
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620449604244960899, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.g
+      value: 0.41712925
+      objectReference: {fileID: 0}
+    - target: {fileID: 2620449604244960899, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
+        type: 3}
+      propertyPath: m_TileColorArray.Array.data[0].m_Data.b
+      value: 0.489483
+      objectReference: {fileID: 0}
     - target: {fileID: 4035241699024184627, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
         type: 3}
       propertyPath: m_Tiles.Array.size
@@ -11285,7 +11315,8 @@ PrefabInstance:
     - target: {fileID: 6234042614450217734, guid: 33a5cb0bba8924840ab3b0ea77f3167b,
         type: 3}
       propertyPath: m_Name
-      value: Room4
+      value: EmptyRoomTemplate
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 4254393747686012199, guid: 33a5cb0bba8924840ab3b0ea77f3167b, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: 33a5cb0bba8924840ab3b0ea77f3167b, type: 3}
