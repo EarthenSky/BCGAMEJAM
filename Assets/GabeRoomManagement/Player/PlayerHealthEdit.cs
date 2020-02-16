@@ -31,7 +31,7 @@ public class PlayerHealthEdit : MonoBehaviour
         //checks if player is dead
         if(health <= 0) {
             dead = true;
-            SceneManager.LoadScene("TODO: put a scene here");
+            //SceneManager.LoadScene("TODO: put a scene here");
         }
     }
 }
