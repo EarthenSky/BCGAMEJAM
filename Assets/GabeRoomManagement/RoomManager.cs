@@ -79,7 +79,7 @@ public class RoomManager : MonoBehaviour
         currentRoomSize = currentRoomSize * 2;
         lastRoom = currentRoom;
         currentRoom = bossRoom;  // Get new room
-        currentRoom = Instantiate(bossRoom, new Vector3(ROOM_WIDTH * currentRoomNum, 0, 0), Quaternion.identity);
+        currentRoom = Instantiate(bossRoom, new Vector3(ROOM_WIDTH * (currentRoomNum+1), 0, 0), Quaternion.identity);
         
         // Get script portion of the room.
         lastRoomController = currentRoomController;
