@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour
     public int currentRoomSize = CAMERA_ZOOM_NORMAL;
     public List<GameObject> rooms;
     public GameObject bossRoom;
+    public AudioClip bossMusic;
 
     public int savedHealth = 100;
     
@@ -28,6 +29,7 @@ public class RoomManager : MonoBehaviour
     public Transform camTrans;
     public Camera mainCam;
     public GameObject playerPrefab;
+    public GameObject soundGameObject;
     public Sprite bgSprite;
     private bool cameraAtNewScene = true;
 
@@ -82,8 +84,11 @@ public class RoomManager : MonoBehaviour
         // Get script portion of the room.
         lastRoomController = currentRoomController;
         currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
-        currentRoomController.playerPrefab = this.playerPrefab; // pass player to the room.
+        currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
         currentRoomController.backgroundImg = this.bgSprite; //pass background sprite to the room
+       
+        //add the boss music to the boss room
+        soundGameObject.GetComponent<AudioSource>().clip = bossMusic;
     }
 /*
     // This is called when room is exited.
