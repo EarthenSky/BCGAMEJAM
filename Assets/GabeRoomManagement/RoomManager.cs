@@ -17,6 +17,7 @@ public class RoomManager : MonoBehaviour
     public int currentRoomSize = CAMERA_ZOOM_NORMAL;
     public List<GameObject> rooms;
     public GameObject bossRoom;
+    public AudioClip bossMusic;
 
     public int savedHealth = 100;
     
@@ -75,6 +76,7 @@ public class RoomManager : MonoBehaviour
         if(lastRoom != null) GameObject.Destroy(lastRoom);  // Remove the old room.
 
         // Make a new room.
+        currentRoomSize = currentRoomSize * 2;
         lastRoom = currentRoom;
         currentRoom = bossRoom;  // Get new room
         currentRoom = Instantiate(bossRoom, new Vector3(ROOM_WIDTH * currentRoomNum, 0, 0), Quaternion.identity);
@@ -83,6 +85,11 @@ public class RoomManager : MonoBehaviour
         lastRoomController = currentRoomController;
         currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
         currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
+        currentRoomController.backgroundImg = this.bgSprite; //pass background sprite to the room
+        
+
+        //add the boss music to the boss room
+        soundGameObject.GetComponent<AudioSource>().clip = bossMusic;
     }
 
     // This is called when room is exited.
