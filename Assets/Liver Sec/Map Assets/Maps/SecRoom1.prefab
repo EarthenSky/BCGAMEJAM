@@ -9359,7 +9359,8 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 7.87
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 3609930552765709837, guid: a1c722f3bd66d284db0799174ad97714, type: 3}
   m_SourcePrefab: {fileID: 100100000, guid: a1c722f3bd66d284db0799174ad97714, type: 3}
 --- !u!1 &5748464766413526932 stripped
 GameObject:
