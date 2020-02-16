@@ -41,8 +41,10 @@ public class ControlsEdit : MonoBehaviour
         
         if(Input.GetAxisRaw("Horizontal") > 0.1 || Input.GetKey("d")) {
             rb.velocity = forewardSpeed;
+            m_SpriteRenderer.flipX = false;
         } else if(Input.GetAxis("Horizontal") < -0.1|| Input.GetKey("a")) {
             rb.velocity = backwardSpeed;
+            m_SpriteRenderer.flipX = true;
         }
 
         if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
@@ -53,12 +55,6 @@ public class ControlsEdit : MonoBehaviour
         //Sets animation parameters
         animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("verticalSpeed", rb.velocity.y);
-
-        if ((rb.velocity.x) > 0) {
-            m_SpriteRenderer.flipX = false;
-        } else if (rb.velocity.x < 0) {
-            m_SpriteRenderer.flipX = true;
-        }
     }
 
     const float SHIELD_COOLDOWN = 0.1f;
