@@ -18,7 +18,7 @@ public class RoomController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     { 
-
+        //transform.Find("Grid").Find("Tilemap").gameObject.AddComponent<TilemapCollision>();
     }
 
     public void CreatePlayer(int health) {
@@ -40,7 +40,7 @@ public class RoomController : MonoBehaviour
     //TODO: implement this.
     public void DestroyEnemies() {
         foreach(Transform t in enemyPositions) {
-	       GameObject.Destroy(t.GetChild(0).gameObject); // destroy the enemies.
+	       GameObject.Destroy(t.gameObject); // destroy the enemies.
 		}
     }
 
