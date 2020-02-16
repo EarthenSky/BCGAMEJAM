@@ -6,7 +6,7 @@ using UnityEngine;
 /// 
 public class RoomManager : MonoBehaviour
 {
-    const float CAMERA_SPEED = 25f;
+    const float CAMERA_SPEED = 40f;
 
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
@@ -92,6 +92,7 @@ public class RoomManager : MonoBehaviour
             if(cameraAtNewScene == false) {
                 // When camera gets there, create the new player.
                 currentRoomController.CreatePlayer(savedHealth);
+                currentRoomController.CreateEnemies();
                 //if(lastRoomController != null) lastRoomController.makeNextPlayer = false;
                 cameraAtNewScene = true;
             }
