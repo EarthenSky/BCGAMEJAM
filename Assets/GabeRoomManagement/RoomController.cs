@@ -51,8 +51,12 @@ public class RoomController : MonoBehaviour
                 tmpEnemy.GetComponent<EnemyEdit>().player = playerObject; 
             }
         } else {
-            //Instantiate();
-            Debug.Log("SPAWN BOSS");
+            Debug.Log("SPAWN BOSS!!");
+            // instantiate an enemy in each position.
+            foreach(Transform transform in enemyPositions) {
+                GameObject tmpEnemy = Instantiate(bossPrefab, transform.position, Quaternion.identity, transform);
+                tmpEnemy.GetComponent<BossEdit>().player = playerObject; 
+            }
         }
         
     }

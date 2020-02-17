@@ -10561,6 +10561,7 @@ Transform:
   - {fileID: 2525388943537867793}
   - {fileID: 8534362312601599633}
   - {fileID: 6477816394070739110}
+  - {fileID: 4891895011143023537}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10579,16 +10580,15 @@ MonoBehaviour:
   playerPrefab: {fileID: 0}
   enemyPrefab: {fileID: 1620711946878042365, guid: 60f3df3a50742b0408487f40437fc79d,
     type: 3}
-  bossPrefab: {fileID: 0}
+  bossPrefab: {fileID: 6480632050872725967, guid: f53b4854817f89e41ad36c75b904becc,
+    type: 3}
   playerObject: {fileID: 0}
   playerScript: {fileID: 0}
   background: {fileID: 0}
   currRoom: {fileID: 0}
   backgroundImg: {fileID: 0}
   enemyPositions:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4891895011143023537}
   isBossRoom: 0
 --- !u!1839735485 &330394722916335075
 Tilemap:
@@ -10628,6 +10628,36 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+--- !u!1 &6201869392049044647
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4891895011143023537}
+  m_Layer: 0
+  m_Name: Boss
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4891895011143023537
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6201869392049044647}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 5, y: 12, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3216664545411214516}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &6918282120807838510
 GameObject:
   m_ObjectHideFlags: 0
