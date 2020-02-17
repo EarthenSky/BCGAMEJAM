@@ -15,7 +15,7 @@ public class EnemyEdit : MonoBehaviour
 	const int STATE_RAND_MOVE = 3;
 	const int STATE_FOLLOW_MOVE = 4;
     
-    public float speed = 5f;
+    public float speed = 2f;
 
 	public GameObject player;
     public int health = 3;
@@ -23,7 +23,7 @@ public class EnemyEdit : MonoBehaviour
     
     //change this name later to shot when the object is renamed to shot
     public GameObject shot;
-    public float velocity = 9.0f;
+    public float velocity = 5.0f;
     float angle, xvelocity, yvelocity;
 
     const float SHOOT_WAIT_MAX = 2.5f;
