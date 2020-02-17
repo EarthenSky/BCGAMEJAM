@@ -68,8 +68,8 @@ public class ControlsEdit : MonoBehaviour
         animator.SetFloat("verticalSpeed", rb.velocity.y);
     }
 
-    const float SHIELD_COOLDOWN = 0.01f;
-    const float SHEILD_DECAY_TIME = 0.01f;
+    const float SHIELD_COOLDOWN = 0.05f;
+    const float SHEILD_DECAY_TIME = 0.05f;
 
     void Update()
     {
