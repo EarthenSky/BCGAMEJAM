@@ -6,7 +6,7 @@ public class ShotLogicEdit : MonoBehaviour
 {          
     private Collider2D myCol;
     const int DAMAGE = 10;
-    const float MAXSPEED = 5;
+    const float MAXSPEED = 10;
     public Rigidbody2D rb;
     int betrayal = 0;
     int counter = 0;
@@ -47,7 +47,6 @@ public class ShotLogicEdit : MonoBehaviour
     const int MAX_BOUNCE = 15;
     const float ALIVE_TIME = 6f;
     
-
     void Update() {
         Vector2 v2 = rb.velocity;
 
@@ -55,20 +54,17 @@ public class ShotLogicEdit : MonoBehaviour
         if (counter >= MAX_BOUNCE){
             GameObject.Destroy(gameObject);
         } 
+
+        //fixed?
+
         //max speed
-        if (v2.x >= MAXSPEED){
-            v2.x = MAXSPEED;
-        }
-        else if (v2.y >= MAXSPEED){
-            v2.y = MAXSPEED;
-        }
-        else if (v2.y <= -MAXSPEED){
-            v2.y = -MAXSPEED;
-        }
-        else if (v2.x <= -MAXSPEED){
-            v2.x = -MAXSPEED;
+        if (v2.x >= MAXSPEED || v2.x <= -MAXSPEED){
+            v2 = v2.normalized * MAXSPEED;
+        } else if (v2.y >= MAXSPEED || v2.y <= -MAXSPEED){
+            v2 = v2.normalized * MAXSPEED;
         }
         rb.velocity = v2;
+        
         // max bounce
         if (count < ALIVE_TIME){
             count += Time.deltaTime;

@@ -5,18 +5,24 @@ using UnityEngine;
 public class BossEdit : MonoBehaviour
 {
 
-    void joyOfCreation(float xv, float yv){
+
+    public GameObject player;
+
+    
+    // creatse the shots
+    void joyOfCreation(float xv, float yv) {
         GameObject s= Instantiate(Shot, transform.position, Quaternion.identity);
-        s.GetComponent<Rigidbody2D>().velocity = new Vector2(xv,yv);
+        s.GetComponent<Rigidbody2D>().velocity = new Vector2(xv, yv);
     }
+
     //this is meant to be the special enemies that the boss will summon
     //much harder to dodge and deal with 
     //more bullet hell more fun
     //these are given an initial velocity by the boss 
-    public int health=500;
+    public int health = 20;
     public GameObject Shot;
     private float total=0;
-    public float velocity = 25.0f;
+    public float velocity = 10.0f;
     float x1velocity, y1velocity, x2velocity, y2velocity, x3velocity, y3velocity;
     float x4velocity, y4velocity, x5velocity, y5velocity, x6velocity, y6velocity;
     float x7velocity, y7velocity, x8velocity, y8velocity;
@@ -47,18 +53,31 @@ public class BossEdit : MonoBehaviour
         y8velocity = Mathf.Sin(angle8) * velocity;
 
     }
+
+    // deals damage to this enemy
+    public void DealDamage() {
+        health--;
+
+        if(health == 0) {
+            Destroy(gameObject);
+        } else {
+            // set color if needed
+            this.GetComponent<SpriteRenderer>().color = new Color(1, health / 20f, health / 20f);
+        }
+    }
+
     void Update(){
-        if (total>1.3f){
+        if (total > 1.3f) {
             //fire the 3 bullets every 1.3 seconds
             total=0;
-            joyOfCreation(x1velocity,y1velocity);
-            joyOfCreation(x2velocity,y2velocity);
-            joyOfCreation(x3velocity,y3velocity);
-            joyOfCreation(x4velocity,y4velocity);
-            joyOfCreation(x5velocity,y5velocity);
-            joyOfCreation(x6velocity,y6velocity);
-            joyOfCreation(x7velocity,y7velocity);
-            joyOfCreation(x8velocity,y8velocity);
+            joyOfCreation(x1velocity, y1velocity);
+            joyOfCreation(x2velocity, y2velocity);
+            joyOfCreation(x3velocity, y3velocity);
+            joyOfCreation(x4velocity, y4velocity);
+            joyOfCreation(x5velocity, y5velocity);
+            joyOfCreation(x6velocity, y6velocity);
+            joyOfCreation(x7velocity, y7velocity);
+            joyOfCreation(x8velocity, y8velocity);
         }
         else{
             total+=Time.deltaTime;
