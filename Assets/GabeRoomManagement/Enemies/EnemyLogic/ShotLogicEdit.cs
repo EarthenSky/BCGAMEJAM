@@ -24,6 +24,7 @@ public class ShotLogicEdit : MonoBehaviour
         } else if (collisionInfo.collider.name == "Shield" && betrayal == 0) {
             counter = 0;
             betrayal = 1;
+            count = -1000f;
             
             //Physics2D.IgnoreCollision(collisionInfo.collider, myCol, false);
             this.GetComponent<SpriteRenderer>().color = Color.blue;
@@ -44,8 +45,8 @@ public class ShotLogicEdit : MonoBehaviour
         }
     }
 
-    const int MAX_BOUNCE = 15;
-    const float ALIVE_TIME = 6f;
+    const int MAX_BOUNCE = 200;
+    const float ALIVE_TIME = 15f;
     
     void Update() {
         Vector2 v2 = rb.velocity;
