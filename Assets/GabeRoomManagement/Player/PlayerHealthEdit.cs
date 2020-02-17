@@ -25,7 +25,7 @@ public class PlayerHealthEdit : MonoBehaviour
     void Update()
     {   
         //prints hp to text
-        float hpPercent = health/100f;
+        float hpPercent = health / 100f;
         hpText.text = health.ToString() + " / 100";
         hpBar.transform.localScale = new Vector3(hpPercent,0.2f,1);
         //checks if player is dead
@@ -37,9 +37,8 @@ public class PlayerHealthEdit : MonoBehaviour
 
     public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.collider.name == "Damage Blocks")
-        {
-            health = 0;
+        if (collision.collider.name == "Damage Blocks") {
+            health = 10;
             //should lead to the scene above
         }
 
