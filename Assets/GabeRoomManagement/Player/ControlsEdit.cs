@@ -50,15 +50,14 @@ public class ControlsEdit : MonoBehaviour
 
         // Calculate the approximate distance that will be traversed
         float distance = tmpVelocity.magnitude * Time.fixedDeltaTime;
-        RaycastHit2D hit = Physics2D.Raycast(rb.position, tmpVelocity.normalized);
-    
+
         // Check if the body's current velocity will result in a collision & stop movement
-        if(hit.collider != null) {
+        RaycastHit2D hit = Physics2D.Raycast(rb.position, tmpVelocity.normalized);
+        if(hit.collider != null && hit.distance < distance) {
             rb.velocity = tmpVelocity;
         }    
 
-        // -------------------------------------------------------------------- //
-
+        // Do jumping after
         if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
             rb.AddForce(jumpForce);
             grounded = 0;

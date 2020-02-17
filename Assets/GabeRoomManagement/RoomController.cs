@@ -44,7 +44,7 @@ public class RoomController : MonoBehaviour
     }
 
     public void CreateEnemies() {
-        if(isBossRoom) {
+        if(!isBossRoom) {
             // instantiate an enemy in each position.
             foreach(Transform transform in enemyPositions) {
                 GameObject tmpEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity, transform);
