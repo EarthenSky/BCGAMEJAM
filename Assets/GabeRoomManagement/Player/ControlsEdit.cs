@@ -36,6 +36,12 @@ public class ControlsEdit : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
+        // Do jumping first
+        if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
+            rb.AddForce(jumpForce);
+            grounded = 0;
+        }
+
         Vector2 forewardSpeed = new Vector2(7.0f, rb.velocity.y);
         Vector2 backwardSpeed = new Vector2(-7.0f, rb.velocity.y);
         Vector2 tmpVelocity = new Vector2(0, 0);
@@ -53,23 +59,17 @@ public class ControlsEdit : MonoBehaviour
 
         // Check if the body's current velocity will result in a collision & stop movement
         RaycastHit2D hit = Physics2D.Raycast(rb.position, tmpVelocity.normalized);
-        if(hit.collider != null && hit.distance < distance) {
+        if(hit.collider != null && (hit.distance < distance)) {
             rb.velocity = tmpVelocity;
-        }    
-
-        // Do jumping after
-        if((Input.GetButton("xButton") || Input.GetKeyDown("w")) && grounded == 1) {
-            rb.AddForce(jumpForce);
-            grounded = 0;
-        }
+        }  
         
         //Sets animation parameters
         animator.SetFloat("speed", Mathf.Abs(rb.velocity.x));
         animator.SetFloat("verticalSpeed", rb.velocity.y);
     }
 
-    const float SHIELD_COOLDOWN = 0.1f;
-    const float SHEILD_DECAY_TIME = 0.1f;
+    const float SHIELD_COOLDOWN = 0.01f;
+    const float SHEILD_DECAY_TIME = 0.01f;
 
     void Update()
     {
