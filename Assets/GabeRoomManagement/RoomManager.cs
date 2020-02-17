@@ -20,6 +20,7 @@ public class RoomManager : MonoBehaviour
     public List<GameObject> rooms;
     public GameObject bossRoom;
     public AudioClip bossMusic;
+    public Sprite bossBG;
 
     public int savedHealth = 100;
     
@@ -87,11 +88,12 @@ public class RoomManager : MonoBehaviour
         lastRoomController = currentRoomController;
         currentRoomController = currentRoom.GetComponent<RoomController>();  // Updates 
         currentRoomController.playerPrefab = this.playerPrefab;  // pass player to the room.
-        currentRoomController.backgroundImg = this.bgSprite; //pass background sprite to the room
+        currentRoomController.backgroundImg = this.bossBG; //pass background sprite to the room
 
         //add the boss music to the boss room
         AudioSource SoundPlayer = soundGameObject.GetComponent<AudioSource>(); 
         SoundPlayer.clip = bossMusic;
+
         SoundPlayer.Play();
     }
 
