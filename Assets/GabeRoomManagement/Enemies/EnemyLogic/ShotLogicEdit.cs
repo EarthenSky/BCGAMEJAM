@@ -40,6 +40,13 @@ public class ShotLogicEdit : MonoBehaviour
             if (collisionInfo.collider.gameObject.GetComponent<EnemyEdit>().health < 0){
                 GameObject.Destroy(collisionInfo.collider.gameObject);
             }  
+        } else if ((collisionInfo.collider.name == "Boss(Clone)") && (betrayal == 1)) {
+            GameObject.Destroy(gameObject);
+
+            collisionInfo.collider.gameObject.GetComponent<BossEdit>().DealDamage();
+            if (collisionInfo.collider.gameObject.GetComponent<BossEdit>().health < 0){
+                GameObject.Destroy(collisionInfo.collider.gameObject);
+            }  
         } else if((collisionInfo.collider.name == "Enemy(Clone)") && (betrayal == 0)) {
             //Physics2D.IgnoreCollision(collisionInfo.collider, myCol, true);
         }

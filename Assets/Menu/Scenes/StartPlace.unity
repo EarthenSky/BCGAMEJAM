@@ -191,7 +191,14 @@ MonoBehaviour:
     m_LineSpacing: 1
   m_Text: 'Use A and D to move
 
-    W or SPACE to jump'
+    W or SPACE to jump
+
+
+    Leftclick for shield
+
+
+    (music
+    in headphones)'
 --- !u!222 &243945550
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -38,7 +38,7 @@ public class PlayerHealthEdit : MonoBehaviour
     public void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.collider.name == "Damage Blocks") {
-            health = 10;
+            health -= 10;
             //should lead to the scene above
         }
 

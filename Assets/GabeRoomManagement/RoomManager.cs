@@ -11,7 +11,7 @@ public class RoomManager : MonoBehaviour
 
     const int ROOM_WIDTH = 42;
     const int ROOM_HEIGHT = 24;
-    public const int ROOM_COUNT = 8;
+    public const int ROOM_COUNT = 5;
 
     const int CAMERA_ZOOM_NORMAL = 12;
     public int currentRoomNum = 0;
